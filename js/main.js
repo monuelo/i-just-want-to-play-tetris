@@ -3,30 +3,47 @@ const nextCanvas = document.getElementById('nextPiece');
 const hold = document.getElementById('holdPiece');
 const tetris = new Tetris(canvas, nextPiece, hold);
 
+const gameSongs = new GameSongs({
+    themeSong: new Sound({ src: './assets/tetris.mp3', loop: true }),
+    gameOver: new Sound({ src: './assets/gameover.wav' }),
+    line: new Sound({ src: './assets/line.wav' }),
+    fall: new Sound({ src: './assets/fall.wav' }),
+    clear: new Sound({ src: './assets/clear.wav' }),
+    swap: new Sound({ src: './assets/selection.wav' }),
+  })
+
+document.getElementById('play').onclick = () => {
+    let home = document.getElementById('home');
+    home.style.display = 'none';
+    tetris.init()
+}
+
 document.addEventListener('keydown', event => {
-  switch (event.keyCode) {
-    case 32:
-      tetris.player.fall(true);
-      return;
-    case 40:
-      tetris.player.fall();
-      return;
-    case 37:
-      tetris.player.slide(-1);
-      return;
-    case 39:
-      tetris.player.slide(1);
-      return;
-    case 88:
-      tetris.player.spin(-1);
-      return;
-    case 38:
-      tetris.player.spin(1);
-      return;
-    case 16:
-      tetris.player.swap();
-      return;
-    case 80:
-      tetris.togglePause();
-  }
+    if (!tetris.paused && !tetris.board.over) {
+        switch (event.keyCode) {
+            case 32:
+                tetris.player.fall(true);
+                return;
+            case 40:
+                tetris.player.fall();
+                return;
+            case 37:
+                tetris.player.slide(-1);
+                return;
+            case 39:
+                tetris.player.slide(1);
+                return;
+            case 88:
+                tetris.player.spin(-1);
+                return;
+            case 38:
+                tetris.player.spin(1);
+                return;
+            case 16:
+                tetris.player.swap();
+                return;
+        }
+    }
+    if (event.keyCode === 80)
+        tetris.togglePause();
 });

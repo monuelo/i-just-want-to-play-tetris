@@ -96,6 +96,7 @@ class Player {
 
   fall(instaDrop = false) {
     if (instaDrop) {
+      gameSongs.play('fall');
       while (!this.board.hit(this)) {
         this.position.y++;
       }
@@ -138,6 +139,7 @@ class Player {
   }
 
   rotatePiece(piece, dir) {
+    gameSongs.hardPlay('swap');
     for (let y = 0; y < piece.length; y++) {
       for (let x = 0; x < y; x++) {
         [
