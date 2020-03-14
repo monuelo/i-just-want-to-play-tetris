@@ -23,7 +23,7 @@ document.addEventListener('keydown', event => {
     case 38:
       tetris.player.spin(1);
       return;
-    case 90:
+    case 16:
       tetris.player.swap();
       return;
     case 80:
