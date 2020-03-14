@@ -1,0 +1,100 @@
+body {
+  background: #101010;
+  color: #fff;
+  font-family: 'joystix', sans-serif;
+  font-size: 1.4vw;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+header {
+  height: 10vh;
+  padding-bottom: 10px;
+}
+
+img {
+  max-height: 100px;
+  float: left;
+}
+
+li {
+  list-style: none;
+  display: block;
+  float: left;
+}
+
+ul {
+  float: left;
+  width: 20%;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.canvas-area {
+  margin: 0 auto;
+  margin-left: 33vw;
+  text-align: left;
+  font-size: 12px;
+}
+
+.controls {
+  float: left;
+  width: auto;
+}
+
+.sidebar {
+  float: left;
+}
+
+@font-face {
+  font-family: 'joystix';
+  src: url('assets/joystix.otf') format('opentype');
+}
+
+#tetris, #nextPiece, #holdPiece {
+  border: solid .2em #fff;
+  height: 80vh;
+  width: auto;
+  float: left;
+}
+
+#game-over, #game-paused {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  vertical-align:bottom;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: #101010;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#game-paused {
+  background-color: #101010DD;
+}
+
+#holdPiece {
+  width: 20vh;
+  height: auto;
+}
+
+#nextPiece {
+  width: 20vh;
+  height: auto;
+}
+
+#score {
+  margin-top: 20px;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Tetris</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="shortcut icon" href="tetris_logo.png" type="image/x-icon">
+  <base target="_top">
+</head>
+
+<header>
+  <h1>I Just Want To Play Tetris</h1>
+</header>
+
+<body id="top">
+  <div id="game-over">
+    <h2>GAME OVER</h2>
+    <h3 id="final-score"></h3>
+    <h4>Click to play again</h4>
+  </div>
+  <div id="game-paused">
+    <h2>GAME PAUSED</h2>
+    <h4>Press 'p' to continue</h4>
+  </div>
+  <div class="controls group">
+    <table>
+      <tr>
+        <th>Action</th>
+        <th>Key</th>
+      </tr>
+      <tr>
+        <td>Spin Left</td>
+        <td>X</td>
+      </tr>
+      <tr>
+        <td>Spin Right</td>
+        <td>▲</td>
+      </tr>
+      <tr>
+        <td>Slide Left</td>
+        <td>◀</td>
+      </tr>
+      <tr>
+        <td>Slide Right</td>
+        <td>▶</td>
+      </tr>
+      <tr>
+        <td>Slide Down</td>
+        <td>▼</td>
+      </tr>
+      <tr>
+        <td>Hold</td>
+        <td>Z</td>
+      </tr>
+      <tr>
+        <td>Insta-Drop</td>
+        <td>Space</td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+  <div class="canvas-area">
+    <canvas id="tetris" width="240" height="400"></canvas>
+    <ul class="sidebar group">
+      <li class="next-piece">
+        <h2>Next Piece</h2>
+        <canvas id="nextPiece" width="100" height="100"></canvas>
+      </li>
+      <li class="next-piece">
+        <h2>Hold Piece</h2>
+        <canvas id="holdPiece" width="100" height="100"></canvas>
+      </li>
+      <div id="score">
+        Score:
+      </div>
+    </ul>
+  </div>
+  <script src="./js/board.js"></script>
+  <script src="./js/player.js"></script>
+  <script src="./js/tetris.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
