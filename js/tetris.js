@@ -1,5 +1,5 @@
 class Tetris {
-  constructor(canvas, nextPiece, hold) {
+  constructor({ canvas, nextPiece, hold }) {
     this.canvas = canvas;
     this.colors = [
       null,
@@ -9,7 +9,7 @@ class Tetris {
       "#A76CF1",
       "#73E831",
       "#EFEE3B",
-      "#F14323"
+      "#F14323",
     ];
 
     this.hold = hold;
@@ -45,7 +45,7 @@ class Tetris {
       requestAnimationFrame(update);
       if (this.board.over) {
         gameSongs.stop("themeSong");
-        document.addEventListener("click", e => {
+        document.addEventListener("click", (e) => {
           this.reset();
         });
       }
@@ -78,7 +78,7 @@ class Tetris {
   }
 
   drawPaused() {
-    let elPaused = document.getElementById("game-paused");
+    let elPaused = document.querySelector("#game-paused");
     if (this.paused) {
       elPaused.style.display = "flex";
     } else {
@@ -119,7 +119,7 @@ class Tetris {
       this.player.score = 0;
       this.board.over = false;
       gameSongs.stop("themeSong");
-      let elOver = document.getElementById("game-over");
+      let elOver = document.querySelector("#game-over");
       elOver.style.display = "none";
       this.init();
     }
