@@ -9,7 +9,7 @@ class Board {
   }
 
   clear() {
-    this.matrix.forEach(row => row.fill(0));
+    this.matrix.forEach((row) => row.fill(0));
     this.gameOver();
   }
 
@@ -34,10 +34,10 @@ class Board {
   }
 
   gameOver() {
-    let elOver = document.getElementById("game-over");
+    let elOver = document.querySelector("#game-over");
     elOver.style.display = "flex";
-    let elScore = document.getElementById("final-score");
-    let currentScore = document.getElementById("score").innerHTML;
+    let elScore = document.querySelector("#final-score");
+    let currentScore = document.querySelector("#score").innerHTML;
     elScore.textContent = "Your " + currentScore;
     this.over = true;
   }
@@ -62,9 +62,8 @@ class Board {
     player.currentPiece.forEach((row, yIndex) => {
       row.forEach((value, xIndex) => {
         if (value !== 0) {
-          this.matrix[yIndex + player.position.y][
-            xIndex + player.position.x
-          ] = value;
+          this.matrix[yIndex + player.position.y][xIndex + player.position.x] =
+            value;
         }
       });
     });

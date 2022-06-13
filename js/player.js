@@ -72,10 +72,8 @@ class Player {
         this.nextPiece = this.randomPiece();
         this.recenterPiece();
       } else if (this.hold.length === 1) {
-        [this.currentPiece, this.nextPiece] = [
-          this.hold.pop(),
-          this.currentPiece
-        ];
+        this.hold.push(this.currentPiece);
+        this.currentPiece = this.hold.shift();
         this.recenterPiece();
       }
     this.canSwap = false;
@@ -172,6 +170,6 @@ class Player {
   }
 
   updateScore() {
-    document.getElementById("score").innerText = "score: " + this.score;
+    document.querySelector("#score").innerText = "score: " + this.score;
   }
 }
