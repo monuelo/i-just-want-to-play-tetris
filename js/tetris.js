@@ -14,6 +14,7 @@ class Tetris {
 
     this.hold = hold;
     this.paused = false;
+    this.musicPaused = false;
 
     this.holdCtx = hold.getContext("2d");
     this.holdCtx.scale(14, 14);
@@ -109,6 +110,13 @@ class Tetris {
     else gameSongs.play("themeSong");
 
     this.paused = !this.paused;
+  }
+
+  toggleMusic() {
+    if (!this.musicPaused) gameSongs.pause("themeSong");
+    else gameSongs.play("themeSong");
+
+    this.musicPaused = !this.musicPaused;
   }
 
   reset() {

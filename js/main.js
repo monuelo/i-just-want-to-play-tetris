@@ -46,6 +46,9 @@ document.addEventListener("keydown", (event) => {
       case 16:
         tetris.player.swap();
         return;
+      case 77:
+        tetris.toggleMusic()
+        return;
     }
   }
   if (event.keyCode === 80) tetris.togglePause();
