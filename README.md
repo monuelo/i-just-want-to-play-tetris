@@ -14,6 +14,7 @@
 I just wanted to play tetris, so I decided to make my own.
 
 ### Demo
+
 Live demo on [tetris.hericl.es](https://tetris.hericl.es)
 
 ---
@@ -34,15 +35,15 @@ Live demo on [tetris.hericl.es](https://tetris.hericl.es)
 
 | Action      | Key         |
 | ----------- | ----------- |
-| Spin Left   | &uarr;  |
-| Spin Right   | &rarr;  |
-| Slide Left  | &larr;  |
-| Slide Right  | &rarr;  |
-| Slide Down   | &darr; |
-| Insta-Drop   | space  |
-| Hold   | shift  |
-| Pause   | p |
-| Mute Music   | m  |
+| Spin Left   | x           |
+| Spin Right  | &uarr;      |
+| Slide Left  | &larr;      |
+| Slide Right | &rarr;      |
+| Slide Down  | &darr;      |
+| Insta-Drop  | space       |
+| Hold        | shift       |
+| Pause       | p           |
+| Mute Music  | m           |
 
 URL: https://tetris.hericl.es
 
