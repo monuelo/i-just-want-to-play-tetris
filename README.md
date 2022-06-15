@@ -1,7 +1,8 @@
 ![tetris](assets/header.png)
+
 # I Just Want to Play Tetris
 
-![Website](https://img.shields.io/website?url=https%3A%2F%2Ftetris.hericl.es) 
+![Website](https://img.shields.io/website?url=https%3A%2F%2Ftetris.hericl.es)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)
 ![GitHub issues](https://img.shields.io/github/issues/monuelo/i-just-want-to-play-tetris)
 ![GitHub latest commit](https://badgen.net/github/last-commit/monuelo/i-just-want-to-play-tetris)
@@ -17,38 +18,30 @@ I just wanted to play tetris, so I decided to make my own.
 
 Live demo on [tetris.hericl.es](https://tetris.hericl.es)
 
----
-
 ## Project Details
 
-- Developed with Vanilla JS, no libraries or frameworks
-
----
+Developed with Vanilla JS, no libraries or frameworks
 
 ## Getting Started
 
-- To run the app, right-click the index.html file and open in a web browser (or with Live Server if using VSCode)
+To run the app, right-click the index.html file and open in a web browser (or with Live Server if using VS Code)
 
----
+## Play the Game
 
-## Play the Game 
+| Action      | Key    |
+| ----------- | ------ |
+| Spin Left   | x      |
+| Spin Right  | &uarr; |
+| Slide Left  | &larr; |
+| Slide Right | &rarr; |
+| Slide Down  | &darr; |
+| Insta-Drop  | space  |
+| Hold        | shift  |
+| Pause       | p      |
+| Mute Music  | m      |
 
-| Action      | Key         |
-| ----------- | ----------- |
-| Spin Left   | x           |
-| Spin Right  | &uarr;      |
-| Slide Left  | &larr;      |
-| Slide Right | &rarr;      |
-| Slide Down  | &darr;      |
-| Insta-Drop  | space       |
-| Hold        | shift       |
-| Pause       | p           |
-| Mute Music  | m           |
+## Contributing
 
-URL: https://tetris.hericl.es
+<img src="./assets/contribute.svg" height="230px" alt="Contribute"/>
 
----
-
-## How to Contribute? 🙌
-
-- Your contributions are welcome! To begin, please review our [contribution guidelines](https://github.com/monuelo/i-just-want-to-play-tetris/blob/master/CONTRIBUTE.md)
+If it is your first time contributing to this repository, please review our [contribution guidelines](https://github.com/monuelo/i-just-want-to-play-tetris/blob/master/CONTRIBUTING.md)

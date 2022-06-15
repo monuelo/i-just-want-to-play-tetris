@@ -1,10 +1,8 @@
-# Contribution Guidelines 
+# Contributing to I Just Want To Play Tetris
 
 A big welcome and thank you for considering contributing to this open source project! 
 
 Reading and following these guidelines will help us make the contribution process easy and effective for everyone involved. 
-
----
 
 ## Quicklinks
 
