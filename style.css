@@ -115,6 +115,10 @@ ul {
   margin-top: 20px;
 }
 
+.control-box.volume-on .icon {
+	color: #5AF1F0;
+}
+
 .volume-control {
   margin: 10px;
   width: 100%;

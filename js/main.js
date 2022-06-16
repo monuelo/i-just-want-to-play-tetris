@@ -6,6 +6,10 @@ const tetris = new Tetris({
   nextPiece,
   hold,
 });
+const controlBox = document.getElementsByClassName("control-container")[0];
+const volumeControl = controlBox.querySelector(".volume-control");
+const volumeInput = volumeControl.querySelector("input[type=range]");
+const allSounds = document.getElementsByTagName("audio");
 
 const gameSongs = new GameSongs({
   themeSong: new Sound({ src: "./assets/tetris.mp3", loop: true }),
@@ -21,6 +25,30 @@ document.querySelector("#play").onclick = () => {
   home.style.display = "none";
   tetris.init();
 };
+
+const setVolume = () => {
+  const setVolumeLevel = parseInt(volumeInput.value);
+  volumeControl.className = "volume-control";
+
+  [...allSounds].forEach((_, i) => { allSounds[i].volume = setVolumeLevel / 100; });
+
+  if (setVolumeLevel > 0) {
+    controlBox.classList.add("volume-on");
+    volumeControl.classList.add("volume-" + setVolumeLevel);
+  } else {
+    controlBox.classList.remove("volume-on");
+  }
+  tetris.musicPaused ? tetris.toggleMusic() : ''; 
+}
+
+const muteMusic = () => {
+    tetris.toggleMusic()   
+    controlBox.classList.contains("volume-on") ? controlBox.classList.remove("volume-on") : 
+    controlBox.classList.add("volume-on");
+}
+
+volumeInput.addEventListener("mousemove", setVolume);
+setVolume();
 
 document.addEventListener("keydown", (event) => {
   if (!tetris.paused && !tetris.board.over) {
@@ -47,7 +75,7 @@ document.addEventListener("keydown", (event) => {
         tetris.player.swap();
         return;
       case 77:
-        tetris.toggleMusic()
+        muteMusic()
         return;
     }
   }
