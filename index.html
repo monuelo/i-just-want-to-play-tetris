@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>Tetris | @monuelo</title>
   <meta name="description" content="I just wanted to play tetris, so I decided to make my own.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
   <base target="_top">
@@ -71,7 +72,21 @@
         <td>M</td>
       </tr>
     </table>
+    <div class="control-container">
+      <div class="volume-control">
+        <div class="speaker"><i class="fas fa-volume-off"></i></div>
+          <div class="bars">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <input type="range" min="0" max="100" step="20" value="60">
+          </div>
+      </div>
+    </div>
   </div>
+  
   <div class="canvas-area">
     <canvas id="tetris" width="240" height="400"></canvas>
     <ul class="sidebar group">

@@ -114,3 +114,117 @@ ul {
 #score {
   margin-top: 20px;
 }
+
+.control-box.volume-on .icon {
+	color: #5AF1F0;
+}
+
+.volume-control {
+  margin: 10px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: baseline;
+}
+
+.volume-control .speaker {
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease-in-out;
+}
+
+.control-container.volume-on .volume-control .speaker {
+  color: #5AF1F0;
+}
+
+.volume-control .bars {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  margin-left: 20px;
+  width: 48%; 
+  height: 80%;
+}
+
+.volume-control .bars .bar {
+  width: 14%;
+  margin: 0 3%;
+  background-color: #bbb;
+  transition: 0.3s ease-in-out;
+}
+
+.volume-control .bars .bar:nth-child(1) {
+  height: 20%;
+}
+
+.volume-control .bars .bar:nth-child(2) {
+  height: 40%;
+}
+
+.volume-control .bars .bar:nth-child(3) {
+  height: 60%;
+}
+
+.volume-control .bars .bar:nth-child(4) {
+  height: 80%;
+}
+
+.volume-control .bars .bar:nth-child(5) {
+  height: 100%;
+}
+
+.volume-control .bars input[type='range'] {
+  position: absolute;
+  left: -10%;
+  width: 110%;
+  height: 100%;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.volume-control.volume-20 .bars .bar:nth-child(1),
+.volume-control.volume-40 .bars .bar:nth-child(1),
+.volume-control.volume-60 .bars .bar:nth-child(1),
+.volume-control.volume-80 .bars .bar:nth-child(1),
+.volume-control.volume-100 .bars .bar:nth-child(1),
+.volume-control.volume-40 .bars .bar:nth-child(2),
+.volume-control.volume-60 .bars .bar:nth-child(2),
+.volume-control.volume-80 .bars .bar:nth-child(2),
+.volume-control.volume-100 .bars .bar:nth-child(2),
+.volume-control.volume-60 .bars .bar:nth-child(3),
+.volume-control.volume-80 .bars .bar:nth-child(3),
+.volume-control.volume-100 .bars .bar:nth-child(3),
+.volume-control.volume-80 .bars .bar:nth-child(4),
+.volume-control.volume-100 .bars .bar:nth-child(4),
+.volume-control.volume-100 .bars .bar:nth-child(5) {
+  background-color: #5AF1F0;
+}
+
+@media (max-width: 1500px) {
+  .volume-control {
+    height: 30px;
+  }
+  .volume-control .speaker {
+    font-size: 25px;
+  }
+  .volume-control .bars {
+    margin-left: 10px;
+    width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .volume-control {
+    height: 20px;
+  }
+  .volume-control .speaker {
+    font-size: 15px;
+  }
+  .volume-control .bars {
+    margin-left: 5px;
+    width: 35%;
+  }
+}
