@@ -1,0 +1,22 @@
+{
+  "name": "tetris-server",
+  "version": "1.0.0",
+  "description": "I Just Want To Play Tetris Backend API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=production node server",
+    "dev": "nodemon server"
+  },
+  "author": "Christopher Grigsby",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^3.2.4",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
