@@ -12,7 +12,16 @@ const idFilter = (req) => (element) => element.id == req.params.id;
 // @route   GET /api/v1/scoreboard
 exports.getScoreboard = asyncHandler(async (req, res, next) => {
   fs.readFile(scoreboard_path, 'utf-8', (err, jsonStr) => {
-    err ? next(err) : res.send(JSON.parse(jsonStr));
+    if (err) {
+      next(err);
+    } else {
+      try {
+        const scoreboard_data = JSON.parse(jsonStr);
+        res.status(200).json({success: 'true', scoreboard: scoreboard_data})
+      } catch (err) {
+        next(err);
+      }
+    }
   });
 });
 
@@ -24,8 +33,8 @@ exports.getLeaderboard = asyncHandler(async (req, res, next) => {
       next(err);
     } else {
       try {
-        const leaderboard = JSON.parse(jsonStr).slice(0, 5);
-        res.send(leaderboard);
+        const leaderboard_data = JSON.parse(jsonStr).slice(0, 5);
+        res.status(200).json({success: 'true', leaderboard: leaderboard_data})
       } catch (err) {
         next(err);
       }
