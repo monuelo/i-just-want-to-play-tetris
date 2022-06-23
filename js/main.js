@@ -8,6 +8,14 @@ const tetris = new Tetris({
 });
 const allSounds = document.getElementsByTagName("audio");
 const controlBox = document.getElementsByClassName("control-container")[0];
+const finalScoreText = document.querySelector("#final-score"); 
+const home = document.getElementById("home");
+const leaderboardText = document.getElementById("leaderboard-scores");
+const playerInput = document.getElementById("player-name");
+const saveScoreBtn = document.getElementById("save-score-btn");
+const scoreForm = document.getElementById("score-form");
+const scoreSubmitMsg = document.getElementById("score-submit-message");
+const submitScoreBtn = document.getElementById("submit-score-btn");
 const volumeControl = controlBox.querySelector(".volume-control");
 const volumeInput = volumeControl.querySelector("input[type=range]");
 
@@ -45,10 +53,76 @@ const muteMusic = () => {
   tetris.toggleMusic()   
   controlBox.classList.contains("volume-on") ? controlBox.classList.remove("volume-on") : 
   controlBox.classList.add("volume-on");
-}; 
+};
+
+const toggleScoreForm = () => {
+   scoreForm.style.display == 'none' ? scoreForm.style.display = 'block' : scoreForm.style.display = 'none';
+}
+
+const api = new API();
+
+const displayLeaderboard = async () => {
+  const leaderboard_data = await api.GET('/api/v1/scoreboard/leaders');
+
+  if (leaderboard_data.success) {
+    const header = document.createElement("h2");
+    header.innerHTML = "High Scores";
+    home.prepend(header);
+
+    let leaderboard = JSON.stringify(leaderboard_data.leaderboard);
+    leaderboard = JSON.parse(leaderboard);
+    leaderboardText.innerHTML = leaderboard
+    .map((record) => {
+      return `<div> ${record.player} ${record.score} <div/>`;
+    })
+    .join('');
+
+    leaderboardText.style.display = 'block';
+    // reactivate transition
+    leaderboardText.classList.remove('leaderboard');
+    leaderboardText.offsetWidth;
+    leaderboardText.classList.add('leaderboard');
+  }
+};
+displayLeaderboard();
+
+const postScore = async (event) => {
+  event.preventDefault();
+  const finalScore = finalScoreText.innerHTML.slice(12); 
+
+  playerInput.value == '' ? playerInput.style.borderColor = '#ff0000' : playerInput.style.borderColor = '';
+
+  const requestBody = {
+    player: playerInput.value,
+    score: finalScore
+  };
+  const response_data = await api.POST('/api/v1/scoreboard', requestBody);
+
+  if (response_data.success) {
+    toggleScoreForm();
+    scoreSubmitMsg.style.display = '';
+    scoreSubmitMsg.innerHTML = '';
+    saveScoreBtn.style.display = 'none';
+    scoreSubmitMsg.innerHTML = `Congrats ${requestBody.player}!<br/>Your score of ${finalScore} points has been added to the scoreboard`;
+    playerInput.value = '';
+  } else {
+    scoreSubmitMsg.innerHTML = `Sorry, there has been an error <br/>Please try again`;
+  }
+};
 
 volumeInput.addEventListener("mousemove", setVolume);
 setVolume();
+
+saveScoreBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  toggleScoreForm();
+});
+
+submitScoreBtn.addEventListener("click", postScore);
+
+playerInput.addEventListener('change', (event) => {
+  event.target.value != '' ? playerInput.style.borderColor = '' : '';
+});
 
 document.addEventListener("keydown", (event) => {
   if (!tetris.paused && !tetris.board.over) {

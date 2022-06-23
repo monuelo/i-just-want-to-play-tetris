@@ -171,5 +171,12 @@ class Player {
 
   updateScore() {
     document.querySelector("#score").innerText = "score: " + this.score;
+
+    if (this.score > 0) {
+      const saveScoreBttn = document.getElementById('save-score-btn');
+      const scoreSubmitMsg = document.getElementById('score-submit-message');
+      scoreSubmitMsg.style.display = "none";
+      saveScoreBttn.style.display == "none" ? saveScoreBttn.style.display = '' : ''
+    }
   }
 }

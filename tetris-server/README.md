@@ -24,7 +24,20 @@ $ npm run start
 ```
 ## Configuring
 
- This application utilizes dotenv to host environment variables. Add a file named config.env to the 'src/config' directory and include:
+ This application utilizes dotenv to host environment variables. Add a file named config.env to the 'src/config' directory, then include the contents of the config.env.example found within this folder
 
-- NODE_ENV=development (_or production_)
-- PORT=3000 (_or port of choice_}
+## Deploying to Heroku
+
+To deploy to Heroku you will need to push the tetris-server/src subdirectory specifically. When ready to deploy, navigate to the root level of the project in the terminal and execute:
+
+```bash
+# create a new branch 'deploy' containing only the src subdirectory content
+$ git subtree split --prefix tetris-server/src -b deploy
+
+# push the newly created branch to Heroku
+$ git push heroku deploy:master
+```
+
+## Deployed URL
+
+https://i-just-want-to-play-tetris.herokuapp.com/
