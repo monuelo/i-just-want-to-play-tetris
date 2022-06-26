@@ -117,16 +117,29 @@ ul {
   height: auto;
 }
 
+#save-score-btn {
+  display: none;
+}
+
 #score {
   margin-top: 20px;
 }
 
-#leaderboard-scores {
-  display: none;
+#score-form {
+  margin-top: 2%;
 }
 
-#leaderboard-scores div {
-  margin: .5% 0%;
+#score-form input {
+  font-family: 'Open Sans', sans-serif;
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#score-form input:focus {
+  outline: 0;
+  border-color: #777;
 }
 
 #score-submit-message {
@@ -142,18 +155,6 @@ ul {
   border-radius: 10px;
   background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
   box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
-}
-
-.leaderboard {
-  padding: 1% 2%;
-  margin: 0% 10%;
-  border-radius: 50px;
-  background-color: #111;
-  box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
-  -moz-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
-  -webkit-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
 }
 
 .game-over-btn {
@@ -201,21 +202,21 @@ ul {
   box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
 }
 
-#score-form {
-  margin-top: 2%;
+.leaderboard {
+  display: none;
+  padding: 1% 2%;
+  margin: 0% 10%;
+  border-radius: 50px;
+  background-color: #111;
+  box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
-#score-form input {
-  font-family: 'Open Sans', sans-serif;
-  border: 2px solid #f0f0f0;
-  border-radius: 4px;
-  padding: 10px;
-  font-size: 16px;
-}
-
-#score-from input:focus {
-  outline: 0;
-  border-color: #777;
+.leaderboard div {
+  margin: .5% 0%;
 }
 
 .control-box.volume-on .icon {

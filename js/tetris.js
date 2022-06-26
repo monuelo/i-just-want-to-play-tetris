@@ -124,16 +124,20 @@ class Tetris {
     if (this.board.over) {
       //  ensures the board isn't reset prematurely - might want to instead removed
       // eventListener for click
-      const scoreSubmitMsg = document.getElementById("score-submit-message");
-      const saveScoreBtn = document.getElementById("save-score-btn");
       this.board.clear();
-      scoreSubmitMsg.innerHTML = 'Oh snaps, try again!';
-      this.player.score > 0 ? saveScoreBtn.style.display = '' : '';
+      this.player.newGame = true;
       this.player.score = 0;
       this.board.over = false;
       gameSongs.stop("themeSong");
       let elOver = document.querySelector("#game-over");
       elOver.style.display = "none";
+      let saveScoreBtn = document.getElementById("save-score-btn");
+      saveScoreBtn.style.display = "none";
+      let scoreForm = document.getElementById("score-form");
+      scoreForm.style.display = "none";
+      let scoreSubmitMsg = document.getElementById("score-submit-message");
+      scoreSubmitMsg.innerHTML = "Oh snaps, try again!";
+      scoreSubmitMsg.style.display = "inline";
       this.init();
     }
   }

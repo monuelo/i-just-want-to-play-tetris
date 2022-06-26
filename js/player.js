@@ -15,6 +15,7 @@ class Player {
     this.dropInterval = 1000;
     this.reset();
     this.updateScore();
+    this.newGame = true;
   }
 
   createPiece(type) {
@@ -172,11 +173,15 @@ class Player {
   updateScore() {
     document.querySelector("#score").innerText = "score: " + this.score;
 
-    if (this.score > 0) {
-      const saveScoreBttn = document.getElementById('save-score-btn');
-      const scoreSubmitMsg = document.getElementById('score-submit-message');
-      scoreSubmitMsg.style.display = "none";
-      saveScoreBttn.style.display == "none" ? saveScoreBttn.style.display = '' : ''
+    if (this.score > 0 && this.newGame) {
+      let saveScoreBtn = document.getElementById("save-score-btn");
+      let scoreSubmitMsg = document.getElementById("score-submit-message");
+       // rm default msg for score = 0 @ game-over
+       scoreSubmitMsg.style.display = "none"; 
+       scoreSubmitMsg.innerHTML = "";
+      // display save score btn @ game-over
+      saveScoreBtn.style.display = "inline";
+      this.newGame = false;
     }
   }
 }
