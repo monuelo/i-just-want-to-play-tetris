@@ -1,6 +1,7 @@
 // @packages
 const dotenv = require('dotenv');
 const express = require('express');
+const cors = require('cors');
 // @routes
 const scoreboard = require('./routes/scoreboard');
 // @env vars
@@ -11,6 +12,8 @@ const app = express();
 // body parser middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+// cors middleware
+app.use(cors());
 
 // mount routers
 app.use('/api/v1/scoreboard', scoreboard);

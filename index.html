@@ -17,13 +17,26 @@
 
 <body id="top">
   <div id="home">
+    <div id="leaderboard-scores" class="leaderboard"></div>
     <h1>I Just Want To Play Tetris</h1>
     <button id="play">▶ PLAY</button>
   </div>
   <div id="game-over">
     <h2>GAME OVER</h2>
     <h3 id="final-score"></h3>
-    <h4>Click to play again</h4>
+    <div id="bttn-container">
+      <button id="save-score-btn" class="game-over-btn color-1">
+        Click Here To Save Score
+      </button>
+    </div>
+    <form id="score-form">
+      <input id="player-name" type="text" name="player" placeholder="Enter Player Name"/>
+      <button id="submit-score-btn" class="game-over-btn color-1">Submit</button>
+    </form>
+    <div id="score-submit-message">Oh snaps, try again!</div>
+    <div>
+      <button id="play-again-btn" class="game-over-btn color-2">Click to play again</button>
+    </div>
   </div>
   <div id="game-paused">
     <h2>GAME PAUSED</h2>
@@ -103,6 +116,7 @@
       </div>
     </ul>
   </div>
+  <script src="./js/api.js"></script>
   <script src="./js/sound.js"></script>
   <script src="./js/board.js"></script>
   <script src="./js/player.js"></script>

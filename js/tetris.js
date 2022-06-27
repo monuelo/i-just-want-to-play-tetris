@@ -38,7 +38,7 @@ class Tetris {
       let timeElapsed = time - lastTime;
       lastTime = time;
 
-      if (!this.paused) {
+      if (!this.paused && !this.board.over) {
         this.player.update(timeElapsed);
       }
 
@@ -46,10 +46,11 @@ class Tetris {
       requestAnimationFrame(update);
       if (this.board.over) {
         gameSongs.stop("themeSong");
-        document.addEventListener("click", (e) => {
+        const playAgain = document.getElementById("play-again-btn");
+        playAgain.addEventListener("click", (e) => {
           this.reset();
         });
-      }
+      } 
     };
     update();
   }
@@ -84,7 +85,7 @@ class Tetris {
       elPaused.style.display = "flex";
     } else {
       elPaused.style.display = "none";
-    }
+    } 
   }
 
   drawShape(piece, location, area) {
@@ -124,11 +125,19 @@ class Tetris {
       //  ensures the board isn't reset prematurely - might want to instead removed
       // eventListener for click
       this.board.clear();
+      this.player.newGame = true;
       this.player.score = 0;
       this.board.over = false;
       gameSongs.stop("themeSong");
       let elOver = document.querySelector("#game-over");
       elOver.style.display = "none";
+      let saveScoreBtn = document.getElementById("save-score-btn");
+      saveScoreBtn.style.display = "none";
+      let scoreForm = document.getElementById("score-form");
+      scoreForm.style.display = "none";
+      let scoreSubmitMsg = document.getElementById("score-submit-message");
+      scoreSubmitMsg.innerHTML = "Oh snaps, try again!";
+      scoreSubmitMsg.style.display = "inline";
       this.init();
     }
   }
