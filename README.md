@@ -20,13 +20,13 @@ Live demo on [tetris.hericl.es](https://tetris.hericl.es)
 
 ## Project Details
 
-Developed with Vanilla JS, no libraries or frameworks
+Frontend developed with Vanilla JS, backend developed with Express.js
 
 ## Getting Started
 
 To run the app, right-click the index.html file and open in a web browser (or with Live Server if using VS Code)
 
-## Play the Game
+## Playing the Game
 
 | Action      | Key    |
 | ----------- | ------ |
